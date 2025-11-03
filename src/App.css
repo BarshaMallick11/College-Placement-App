@@ -1,38 +1,254 @@
-.App {
-  text-align: center;
+/* Basic Setup */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif;
+  margin: 0;
+  background-color: #f4f7f6;
+  color: #333;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Navbar */
+.navbar {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background-color: #fff;
+  padding: 10px 40px;
+  border-bottom: 2px solid #eee;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.navbar h3 {
+  color: #005a9c; /* College blue */
+  margin: 0;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-links span {
+  font-weight: 500;
+}
+
+/* Forms */
+.form-container {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; /* Important for padding */
+}
+
+.error {
+  color: #e53935; /* Red */
+  font-size: 0.875em;
+  margin-top: 6px;
+}
+
+/* Buttons */
+button {
+  background-color: #007bff;
   color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 600;
+  width: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+button:hover {
+  background-color: #0056b3;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.navbar button {
+  width: auto;
+  background-color: #e53935;
+  padding: 8px 16px;
+}
+.navbar button:hover {
+  background-color: #c62828;
+}
+
+/* Grid for Jobs/Cards */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card h4 {
+  margin-top: 0;
+  color: #005a9c;
+}
+
+.card button {
+  width: auto;
+  font-size: 0.9em;
+  padding: 8px 16px;
+  margin-top: 10px;
+}
+/* --- New Button Styles --- */
+
+/* Green applied button for student */
+.applied-btn {
+  background-color: #28a745;
+  cursor: not-allowed;
+}
+.applied-btn:hover {
+  background-color: #218838;
+}
+
+/* Gray cancel button */
+.cancel-btn {
+  background-color: #6c757d;
+  margin-top: 10px;
+}
+.cancel-btn:hover {
+  background-color: #5a6268;
+}
+
+/* --- Admin Card Controls --- */
+.admin-controls {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+.admin-controls .edit-btn {
+  background-color: #ffc107; /* Yellow */
+  color: #212529;
+  width: 100%;
+}
+.admin-controls .edit-btn:hover {
+  background-color: #e0a800;
+}
+
+.admin-controls .delete-btn {
+  background-color: #dc3545; /* Red */
+  width: 100%;
+}
+.admin-controls .delete-btn:hover {
+  background-color: #c82333;
+}
+
+/* --- Admin Dashboard Layout --- */
+.admin-dashboard-layout {
+  display: grid;
+  grid-template-columns: 1fr 2fr; /* Form on left, jobs on right */
+  gap: 30px;
+  align-items: start;
+}
+
+/* Make submissions span both columns at the bottom */
+.submissions-container {
+  grid-column: 1 / -1; /* Span full width */
+  margin-top: 20px;
+}
+
+/* On smaller screens, stack them */
+@media (max-width: 900px) {
+  .admin-dashboard-layout {
+    grid-template-columns: 1fr;
   }
-  to {
-    transform: rotate(360deg);
-  }
+}
+
+/* --- Submissions Table Style --- */
+.submissions-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.submissions-table th,
+.submissions-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+.submissions-table th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+}
+
+.submissions-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+/* --- NEW: Login Switcher --- */
+.login-switcher {
+  display: flex;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid #007bff;
+}
+
+.login-switcher button {
+  flex: 1; /* Each button takes 50% width */
+  padding: 10px;
+  border: none;
+  background-color: #fff;
+  color: #007bff;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 500;
+  width: 50%; /* Override default button width */
+  transition: all 0.2s ease-in-out;
+}
+
+.login-switcher button.active {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.login-switcher button:not(.active):hover {
+  background-color: #f4f7f6;
+}
+
+.login-switcher button:first-child {
+  border-right: 1px solid #007bff;
+}
+
+/* Add a class to the main login button to avoid style conflict */
+.login-submit-btn {
+  margin-top: 10px; /* Add some space above it */
+  width: 100%; /* Ensure it's full width */
 }
