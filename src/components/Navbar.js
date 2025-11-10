@@ -14,14 +14,17 @@ const Navbar = observer(() => {
 
   return (
     <nav className="navbar">
-      <h3>College Placement</h3>
+      <h3>College Placement ({store.user?.instituteKey})</h3>
       {store.isAuthenticated && (
         <div className="nav-links">
           <span>Welcome, {store.user.email} ({store.user.role})</span>
           {store.userRole === 'admin' ? (
             <Link to="/admin">Admin Home</Link>
           ) : (
-            <Link to="/student">Student Home</Link>
+            <>
+              <Link to="/student">Student Home</Link>
+              <Link to="/profile">My Profile</Link>
+            </>
           )}
           <button onClick={handleLogout}>Logout</button>
         </div>

@@ -5,6 +5,7 @@ import AdminDashboard from './pages/AdminDashboard';
 import StudentDashboard from './pages/StudentDashboard';
 import ProtectedRoute from './components/ProtectedRoute';
 import Navbar from './components/Navbar';
+import Profile from './pages/Profile';
 
 function App() {
   return (
@@ -25,12 +26,20 @@ function App() {
             }
           />
 
-          {/* Protected Student Route */}
+          {/* Protected Student Routes */}
           <Route
             path="/student"
             element={
               <ProtectedRoute role="student">
                 <StudentDashboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <ProtectedRoute role="student">
+                <Profile />
               </ProtectedRoute>
             }
           />
