@@ -9,6 +9,9 @@ const JobCard = ({ job, onApply, isApplied, onEdit, onDelete }) => {
     <div className="card">
       <h4>{job.title}</h4>
       <p>{job.company}</p>
+      {job.description && (
+        <p className="job-description">{job.description}</p>
+      )}
 
       {/* --- Student View --- */}
       {onApply && (
